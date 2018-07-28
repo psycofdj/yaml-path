@@ -45,6 +45,32 @@ Outputs:
 /top/first/name=myname/attr2
 ```
 
+## Integration
+### Emacs
+
+Get a local copy of this repo :
+```
+git clone https://github.com/psycofdj/yaml-path.git
+```
+
+Install emacs `yaml-path` package:
+```
+cd emacs && make install
+```
+
+Privided functions:
+
+- `yaml-path-at-point` : (interactive) display path under cursor in minibuffer
+- `yaml-path-which-func`: integrates `yaml-path-at-point` with [which-func-mode](https://github.com/psycofdj/yaml-path/releases/tag/0.1)
+
+Demo:
+
+![Demo](./emacs/demo.gif)
+
+### Intellij
+
+TODO
+
 ## Why ?
 
 Working with [BOSH](https://bosh.io/docs/cli-v2/) often require to writes so-called `ops-file` which
