@@ -53,5 +53,10 @@ yaml files.
 
 This tool is meant to be easily integrated in editor such as emacs.
 
+## Note
+
+The current implementation relies on a very savage hack of golang [yaml](https://github.com/go-yaml/yaml) 
+library vendored in this project.
+
 <!-- Local Variables: -->
 <!-- End: -->
