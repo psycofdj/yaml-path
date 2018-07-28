@@ -50,3 +50,8 @@ Outputs:
 Working with [BOSH](https://bosh.io/docs/cli-v2/) often require to writes so-called `ops-file` which
 are kind of patches for yaml files. Writing the path of the object to modify is a real burden in large
 yaml files.
+
+This tool is meant to be easily integrated in editor such as emacs.
+
+<!-- Local Variables: -->
+<!-- End: -->
