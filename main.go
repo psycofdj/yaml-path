@@ -11,9 +11,11 @@ import (
 func main() {
 	line := flag.Int("line", 0, "cursor line")
 	col := flag.Int("col", 0, "cursor column")
+	sep := flag.String("sep", "/", "set path separator")
+	attr := flag.String("name", "name", "set attribut name, empty to disable")
 	flag.Parse()
 
-	yml.Configure("/", "name")
+	yml.Configure(*sep, *attr)
 	buff, _ := ioutil.ReadAll(os.Stdin)
 	path, err := yml.PathAtPoint(*line-1, *col, buff)
 	if err != nil {
