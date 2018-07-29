@@ -9,7 +9,7 @@
 ;;;###autoload
 (defun yaml-path-at-point()
   (interactive)
-  (message "%s" (get-yaml-path-at-point))
+  (message "%s" (yaml-path-get-path-at-point))
   )
 
 (defun yaml-path-get-path-at-point(&optional pline pcol)
