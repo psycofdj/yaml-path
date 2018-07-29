@@ -60,8 +60,9 @@ cd emacs && make install
 
 Privided functions:
 
-- `yaml-path-at-point` : (interactive) display path under cursor in minibuffer
-- `yaml-path-which-func`: integrates `yaml-path-at-point` with [which-func-mode](https://github.com/psycofdj/yaml-path/releases/tag/0.1)
+- `yaml-path-at-point` : (interactive) display in minibuffer yaml path for token under cursor
+- `yaml-path-get-path-at-point(&optional line col)` : return yaml path for token in current buffer at given line and column
+- `yaml-path-which-func`: integrates `yaml-path-get-path-at-point` with [which-function-mode](https://www.emacswiki.org/emacs/WhichFuncMode)
 
 Demo:
 

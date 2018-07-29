@@ -9,15 +9,22 @@
 ;;;###autoload
 (defun yaml-path-at-point()
   (interactive)
-  (let ((result "unknown")
+  (message "%s" (get-yaml-path-at-point))
+  )
+
+(defun yaml-path-get-path-at-point(&optional pline pcol)
+  (let ((result "???")
+        (line (if pline pline (number-to-string (line-number-at-pos))))
+        (col  (if pcol  pcol  (number-to-string (current-column))))
         (outbuf (get-buffer-create "*yaml-path-result*")))
-    (call-process-region
-     (point-min) (point-max) "yaml-path"
-     nil outbuf nil
-     "-line" (number-to-string (line-number-at-pos)) "-col" (number-to-string (current-column)))
-    (with-current-buffer outbuf
-      (setq result (replace-regexp-in-string "\n+" "" (buffer-string)))
-      )
+
+    (when (= 0 (call-process-region
+                (point-min) (point-max) yaml-path-bin
+                nil outbuf nil
+                "-line" line "-col" col))
+      (with-current-buffer outbuf
+        (setq result (replace-regexp-in-string "\n+" "" (buffer-string)))
+        ))
     (kill-buffer outbuf)
     result
     )
@@ -25,7 +32,7 @@
 
 ;;;###autoload
 (defun yaml-path-which-func()
-  (add-hook 'which-func-functions 'yaml-path-at-point t t)
+  (add-hook 'which-func-functions 'yaml-path-get-path-at-point t t)
   )
 
 ;; --------------------------------------------------------------------------- ;
