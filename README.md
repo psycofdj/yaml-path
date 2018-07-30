@@ -83,6 +83,11 @@ Function is automatically call on cursor move on yaml files
 au FileType yaml :autocmd CursorMoved * call Yamlpath()
 ```
 
+Demo:
+
+![Demo](./vim/demo.gif)
+
+
 ### Intellij
 
 TODO
