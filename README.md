@@ -17,6 +17,8 @@ Usage of ./yaml-path:
         set attribut name, empty to disable (default "name")
   -sep string
         set path separator (default "/")
+  -path string
+        set path to yaml file (default ""), if not set read from stdin
 ```
 
 ## Example
@@ -66,7 +68,7 @@ Provided functions:
 
 Demo:
 
-![Demo](./emacs/demo.gif)
+![Demo](./doc/demo-emacs.gif)
 
 ### Vim
 
@@ -85,13 +87,15 @@ au FileType yaml :autocmd CursorMoved * call Yamlpath()
 
 Demo:
 
-![Demo](./vim/demo.gif)
+![Demo](./doc/demo-vim.gif)
 
 
 ### Intellij
 
-TODO
+1. Go to preference -> tools -> external tools
+2. Add a new one with this configuration
 
+![Demo](./doc/config-intellij.png)
 
 
 
