@@ -17,6 +17,8 @@ Usage of ./yaml-path:
         set attribut name, empty to disable (default "name")
   -sep string
         set path separator (default "/")
+  -path string
+        set path to yaml file (default ""), if not set read from stdin
 ```
 
 ## Example
