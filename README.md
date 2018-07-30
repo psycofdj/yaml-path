@@ -58,7 +58,7 @@ Install emacs `yaml-path` package:
 cd emacs && make install
 ```
 
-Privided functions:
+Provided functions:
 
 - `yaml-path-at-point` : (interactive) display in minibuffer yaml path for token under cursor
 - `yaml-path-get-path-at-point(&optional line col)` : return yaml path for token in current buffer at given line and column
@@ -68,9 +68,27 @@ Demo:
 
 ![Demo](./emacs/demo.gif)
 
+### Vim
+
+Install vim script
+```
+cat ./yaml-path/yaml-path.vim >> ~/.vimrc
+```
+
+Provided functions:
+- `YamlPath()` : display yaml path for token under cursor
+
+Function is automatically call on cursor move on yaml files
+```
+au FileType yaml :autocmd CursorMoved * call Yamlpath()
+```
+
 ### Intellij
 
 TODO
+
+
+
 
 ## Why ?
 
