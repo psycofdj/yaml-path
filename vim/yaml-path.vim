@@ -1,6 +1,7 @@
 function! Yamlpath()
-  let var = system('yaml-path -line ' . line('.') . ' -col ' . col('.'), join(getline(1,'$') , "\n"))
+  let var = system('yaml-path -line ' . line('.') . ' -col ' . string(col('.')-1), join(getline(1,'$') , "\n"))
   let clean = substitute(var, "\n", "", "")
+  redraw!
   echom clean
 endfunction
 
