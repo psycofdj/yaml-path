@@ -14,7 +14,7 @@ Usage of ./yaml-path:
   -line int
         cursor line
   -name string
-        set attribut name, empty to disable (default "name")
+        set special attribute, empty to disable (default "name")
   -sep string
         set path separator (default "/")
   -path string
