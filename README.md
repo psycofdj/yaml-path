@@ -62,7 +62,7 @@ cd emacs && make install
 
 Provided functions:
 
-- `yaml-path-at-point` : (interactive) display in minibuffer yaml path for token under cursor
+- `yaml-path-at-point` : (interactive) display in minibuffer and store to kill ring yaml path for token under cursor
 - `yaml-path-get-path-at-point(&optional line col)` : return yaml path for token in current buffer at given line and column
 - `yaml-path-which-func`: integrates `yaml-path-get-path-at-point` with [which-function-mode](https://www.emacswiki.org/emacs/WhichFuncMode)
 
