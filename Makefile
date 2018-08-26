@@ -8,6 +8,8 @@ BIN_DIR                 ?= $(shell pwd)
 TARBALLS_DIR            ?= $(shell pwd)/.tarballs
 DOCKER_IMAGE_NAME       ?= githubrelease-exporter
 DOCKER_IMAGE_TAG        ?= $(subst /,-,$(shell git rev-parse --abbrev-ref HEAD))
+VERSION                  = $(shell cat VERSION)
+VERSION_EMACS            = $(shell cat emacs/yaml-path-pkg.el | head -n1 | awk '{print $$3}' | sed 's/"//g')
 
 all: format build test
 
@@ -37,7 +39,11 @@ promu:
 		GOARCH=$(subst x86_64,amd64,$(patsubst i%86,386,$(shell uname -m))) \
 		$(GO) get -u github.com/prometheus/promu
 
-build: promu
+emacs:
+	@echo ">> building emacs tarball"
+	@make -s -C emacs dist
+
+build: promu emacs
 	@echo ">> building binaries"
 	@$(PROMU) build --prefix $(PREFIX)
 
@@ -53,9 +59,13 @@ tarballs: crossbuild
 	@echo ">> building release tarballs"
 	@$(PROMU) crossbuild tarballs
 
-release: promu
+release: promu emacs
 	@echo ">> uploading tarballs to the Github release"
 	@$(PROMU) release ${TARBALLS_DIR}
+	@echo " > emacs/emacs-yaml-path-$(VERSION_EMACS).tar"
+	@github-release upload -t v$(VERSION) -f emacs/emacs-yaml-path-$(VERSION_EMACS).tar -u psycofdj -r yaml-path --name emacs-yaml-path-$(VERSION_EMACS).tar
+	@echo " > vim/yaml-path.vim"
+	@github-release upload -t v$(VERSION) -f vim/yaml-path.vim -u psycofdj -r yaml-path --name yaml-path.vim
 
 docker:
 	@echo ">> building docker image"
