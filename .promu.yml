@@ -1,0 +1,24 @@
+verbose: false
+go:
+  cgo: false
+repository:
+  path: github.com/psycofdj/yaml-path
+build:
+  binaries:
+    - name: yaml-path
+      path: .
+  flags: -a -tags 'netgo static_build'
+  ldflags: |
+    -X {{repoPath}}/vendor/github.com/prometheus/common/version.Version={{.Version}}
+    -X {{repoPath}}/vendor/github.com/prometheus/common/version.Revision={{.Revision}}
+    -X {{repoPath}}/vendor/github.com/prometheus/common/version.Branch={{.Branch}}
+    -X {{repoPath}}/vendor/github.com/prometheus/common/version.BuildUser=psycofdj@{{host}}
+    -X {{repoPath}}/vendor/github.com/prometheus/common/version.BuildDate={{date "20060102-15:04:05"}}
+tarball:
+  files:
+    - LICENSE
+crossbuild:
+  platforms:
+    - darwin/amd64
+    - linux/amd64
+    - windows/amd64
