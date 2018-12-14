@@ -12,7 +12,7 @@ import (
 var (
 	line     = kingpin.Flag("line", "Cursor line").Default("0").Int()
 	col      = kingpin.Flag("col", "Cursor column").Default("0").Int()
-	sep      = kingpin.Flag("sep", "Set path separator").Default("0").String()
+	sep      = kingpin.Flag("sep", "Set path separator").Default("/").String()
 	attr     = kingpin.Flag("name", "Set attribut name, empty to disable").Default("name").String()
 	filePath = kingpin.Flag("path", "Set filepath, empty means stdin").Default("").String()
 )
@@ -21,13 +21,6 @@ func main() {
 	kingpin.Version(version.Print("yaml-path"))
 	kingpin.HelpFlag.Short('h')
 	kingpin.Parse()
-
-	// line := flag.Int("line", 0, "cursor line")
-	// col  := flag.Int("col", 0, "cursor column")
-	// sep  := flag.String("sep", "/", "set path separator")
-	// attr := flag.String("name", "name", "set attribut name, empty to disable")
-	// filePath := flag.String("path", "", "set filepath")
-	// flag.Parse()
 
 	yml.Configure(*sep, *attr)
 	var buff []byte
