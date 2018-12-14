@@ -23,7 +23,7 @@ Flags:
 ## Example
 
 Given the following yaml file:
-```
+```yaml
 top:
   first:
     - name: myname
@@ -71,17 +71,9 @@ Demo:
 
 ### Vim
 
-Install vim script
+Install vim script (see the [README](./plugin/README.md)):
 ```
-cat ./yaml-path/yaml-path.vim >> ~/.vimrc
-```
-
-Provided functions:
-- `YamlPath()` : display yaml path for token under cursor
-
-Function is automatically call on cursor move on yaml files
-```
-au FileType yaml :autocmd CursorMoved * call Yamlpath()
+cat ./plugin/yaml-path.vim >> ~/.vimrc
 ```
 
 Demo:
