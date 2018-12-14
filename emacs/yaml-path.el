@@ -23,7 +23,7 @@
     (when (= 0 (call-process-region
                 (point-min) (point-max) yaml-path-bin
                 nil outbuf nil
-                "-line" line "-col" col))
+                "--line" line "--col" col))
       (with-current-buffer outbuf
         (setq result (replace-regexp-in-string "\n+" "" (buffer-string)))
         ))
