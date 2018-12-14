@@ -3,8 +3,8 @@
 ## Installation
 
 Using a VIm plugin manager such as:
-* [https://github.com/tpope/vim-pathogen](Pathogen)
-* [https://github.com/VundleVim/Vundle.vim](Vundle)
+* [Pathogen](https://github.com/tpope/vim-pathogen)
+* [Vundle](https://github.com/VundleVim/Vundle.vim)
 
 Manually:
 ```console
@@ -25,3 +25,6 @@ nnoremap <F12> :Yamlpath<CR>
 
 To call the tool with a custom separator once (in command mode):
 `:Yamlpath "."`
+
+<!-- Local Variables: -->
+<!-- End: -->
