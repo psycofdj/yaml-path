@@ -64,8 +64,8 @@ release: promu emacs
 	@$(PROMU) release ${TARBALLS_DIR}
 	@echo " > emacs/emacs-yaml-path-$(VERSION_EMACS).tar"
 	@github-release upload -t v$(VERSION) -f emacs/emacs-yaml-path-$(VERSION_EMACS).tar -u psycofdj -r yaml-path --name emacs-yaml-path-$(VERSION_EMACS).tar
-	@echo " > vim/yaml-path.vim"
-	@github-release upload -t v$(VERSION) -f vim/yaml-path.vim -u psycofdj -r yaml-path --name yaml-path.vim
+	@echo " > plugin/yaml-path.vim"
+	@github-release upload -t v$(VERSION) -f plugin/yaml-path.vim -u psycofdj -r yaml-path --name yaml-path.vim
 
 docker:
 	@echo ">> building docker image"
