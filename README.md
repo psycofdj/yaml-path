@@ -8,17 +8,16 @@ Generated path is compilant with [BOSH](https://bosh.io/docs/cli-v2/) `ops-file`
 ## Usage
 
 ```
-Usage of ./yaml-path:
-  -col int
-        cursor column
-  -line int
-        cursor line
-  -name string
-        set special attribute, empty to disable (default "name")
-  -sep string
-        set path separator (default "/")
-  -path string
-        set path to yaml file (default ""), if not set read from stdin
+usage: yaml-path [<flags>]
+
+Flags:
+  -h, --help         Show context-sensitive help (also try --help-long and --help-man).
+      --line=0       Cursor line
+      --col=0        Cursor column
+      --sep="/"      Set path separator
+      --name="name"  Set attribut name, empty to disable
+      --path=""      Set filepath, empty means stdin
+      --version      Show application version.
 ```
 
 ## Example
@@ -40,7 +39,7 @@ top:
 ```
 
 
-```cat test.yaml | ./yaml-path -line 5 -col 14```
+```cat test.yaml | ./yaml-path --line 5 --col 14```
 
 Outputs:
 ```
