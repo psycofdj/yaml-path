@@ -1,11 +1,36 @@
-## What
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [What](#what)
+- [Why ?](#why-)
+- [Usage](#usage)
+- [Example](#example)
+- [Integration](#integration)
+    - [Emacs](#emacs)
+    - [Vim](#vim)
+    - [Intellij](#intellij)
+- [Note](#note)
+
+<!-- markdown-toc end -->
+
+
+# What
 
 `yaml-path` reads given yaml on stdin and output a sort of 'path' corresponding to given `line` and
 `column` in the file.
 
 Generated path is compilant with [BOSH](https://bosh.io/docs/cli-v2/) `ops-file` syntax.
 
-## Usage
+
+# Why ?
+
+Working with [BOSH](https://bosh.io/docs/cli-v2/) often require to writes so-called `ops-file` which
+are kind of patches for yaml files. Writing the path of the object to modify is a real burden in large
+yaml files.
+
+This tool is meant to be easily integrated in editor such as emacs.
+
+# Usage
 
 ```
 usage: yaml-path [<flags>]
@@ -20,7 +45,7 @@ Flags:
       --version      Show application version.
 ```
 
-## Example
+# Example
 
 Given the following yaml file:
 ```yaml
@@ -38,16 +63,15 @@ top:
     child3: value3
 ```
 
-
-```cat test.yaml | ./yaml-path --line 5 --col 14```
+`cat test.yaml | ./yaml-path --line 5 --col 14`
 
 Outputs:
 ```
 /top/first/name=myname/attr2
 ```
 
-## Integration
-### Emacs
+# Integration
+## Emacs
 
 Get a local copy of this repo :
 ```
@@ -69,7 +93,7 @@ Demo:
 
 ![Demo](./doc/demo-emacs.gif)
 
-### Vim
+## Vim
 
 Install vim script (see the [README](./plugin/README.md)):
 ```
@@ -81,7 +105,7 @@ Demo:
 ![Demo](./doc/demo-vim.gif)
 
 
-### Intellij
+## Intellij
 
 1. Go to preference -> tools -> external tools
 2. Add a new one with this configuration
@@ -89,18 +113,9 @@ Demo:
 ![Demo](./doc/config-intellij.png)
 
 
+# Note
 
-## Why ?
-
-Working with [BOSH](https://bosh.io/docs/cli-v2/) often require to writes so-called `ops-file` which
-are kind of patches for yaml files. Writing the path of the object to modify is a real burden in large
-yaml files.
-
-This tool is meant to be easily integrated in editor such as emacs.
-
-## Note
-
-The current implementation relies on a very savage hack of golang [yaml](https://github.com/go-yaml/yaml) 
+The current implementation relies on a very savage hack of golang [yaml](https://github.com/go-yaml/yaml)
 library vendored in this project.
 
 <!-- Local Variables: -->
